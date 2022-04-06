@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="text-center mt-5">Products</h2>
+
+<div class="container mt-3">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-3 mt-3 text-center border border-light px-2">
+                <div class="product-box">
+                    <div class="product-desc mt-2">
+                        <h6 class="product-name"> {{ product.description }}</h6>
+                        <div class="m-t text-right mt-4">
+                            <a href="/{{product.code}}" class="btn btn-sm btn-outline btn-primary">View Product </a>
+                        </div>
+                     </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

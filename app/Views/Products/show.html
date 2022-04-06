@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="text-center mt-5"> {{ product.description }} </h2>
+
+<div class="mt-5">
+<form method="post" action="/{{ product.code }}" >
+
+<div class="container mt-5">
+<div class="control-group mt-2">
+    <h4>{{ varieties[0].description }}</h4>
+    {% for option in varieties[0].options %}
+    <label class="control control--radio mt-2">
+        <input type="radio" name="option1" value="{{ option.code }}" checked="checked"/> {{ option.description }}
+    </label>
+    {% endfor %}
+</div>
+</div>
+    <div class="container mt-5">
+        <div class="control-group mt-2">
+            <h4>{{ varieties[1].description }}</h4>
+            {% for option in varieties[1].options %}
+            <label class="control control--radio mt-2">
+                <input type="radio" name="option2" value="{{ option.code }}" checked="checked"/> {{ option.description }}
+            </label>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <button type="submit" name="submit" class="btn btn-lg btn-primary btn-block">Get info</button>
+    </div>
+
+
+</form>
+</div>
+
+{% endblock %}
